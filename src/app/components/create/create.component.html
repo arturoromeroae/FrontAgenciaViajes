@@ -1,0 +1,119 @@
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Add Compra
+</button>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          method="post"
+          #compraForm="ngForm"
+          (ngSubmit)="onCompraCreate(compraForm.value)"
+        >
+          <div class="form-group">
+            <label for="exampleInputEmail1">Subtotal</label>
+            <input
+              type="number"
+              class="form-control"
+              id="exampleInputEmail1"
+              name="subtotalCr"
+              placeholder="Ingresa la subtotal"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Total</label>
+            <input
+              type="number"
+              class="form-control"
+              id="exampleInputCode"
+              name="totalCr"
+              placeholder="Ingresa el total"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Vuelo</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="idVuelo"
+              ngModel
+            >
+              <option selected>Selecciona un destino de vuelo</option>
+              <option value="1">Aruba</option>
+            </select>
+            <label for="exampleInputEmail1">Hotel</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="idHot"
+              ngModel
+            >
+              <option selected>Selecciona un hotel</option>
+              <option value="1">Hilton</option>
+            </select>
+            <label for="exampleInputEmail1">Actividad</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="idAct"
+              ngModel
+            >
+              <option selected>Selecciona una actividad</option>
+              <option value="1">Buceo</option>
+            </select>
+            <label for="exampleInputEmail1">Cliente</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="idCl"
+              ngModel
+            >
+              <option selected>Selecciona un cliente</option>
+              <option value="2">Marcos</option>
+            </select>
+            <label for="exampleInputEmail1">Trabajador</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="idTb"
+              ngModel
+            >
+              <option selected>
+                Selecciona el trabajador que realiza la venta
+              </option>
+              <option value="1">Pablo</option>
+            </select>
+            <p *ngIf="response">
+              Se ha creado correctamente la compra {{ response }}
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <input (click)="onCompraCreate(compraForm.value)" type="button" class="btn btn-primary" value="Completar" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

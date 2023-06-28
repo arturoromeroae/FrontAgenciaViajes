@@ -1,0 +1,58 @@
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Add Aerolinea
+</button>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Aerolinea</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          method="post"
+          #aerolineaForm="ngForm"
+          (ngSubmit)="onAerolineaCreate(aerolineaForm.value)"
+        >
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nombre Aerolinea</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nameAero"
+              name="nameAero"
+              placeholder="Ingresa el nombre"
+              ngModel
+            />
+            <p *ngIf="response">
+              Se ha creado correctamente la aerolinea {{ response }}
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <input (click)="onAerolineaCreate(aerolineaForm.value)" type="button" class="btn btn-primary" value="Completar" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

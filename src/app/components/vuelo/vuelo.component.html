@@ -1,10 +1,14 @@
 <h1 class="d-flex justify-content-center">Vuelos</h1>
+<app-create-vuelo />
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Vuelo Id</th>
-      <th>Vuelo Name</th>
-      <th>Vuelo Last Name</th>
+      <th>Vuelo Destinations</th>
+      <th>Vuelo Departures</th>
+      <th>Vuelo Date</th>
+      <th>Vuelo Seat</th>
+      <th>Vuelo Price</th>
       <th>Options</th>
     </tr>
   </thead>
@@ -13,6 +17,9 @@
       <td>{{ c.idVuelo }}</td>
       <td>{{ c.destinoVuelo }}</td>
       <td>{{ c.salidaVuelo }}</td>
+      <td>{{ c.dateVuelo }}</td>
+      <td>{{ c.asientoVuelo }}</td>
+      <td>{{ c.precio }}</td>
       <td>
         <button
           type="button"

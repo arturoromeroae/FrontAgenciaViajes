@@ -1,1 +1,102 @@
-<p>create-cliente works!</p>
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Add Cliente
+</button>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Cliente</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          method="post"
+          #clienteForm="ngForm"
+          (ngSubmit)="onClienteCreate(clienteForm.value)"
+        >
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nombres Cliente</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nameCl"
+              name="nameCl"
+              placeholder="Ingresa los nombres"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Apellidos Cliente</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lnameCl"
+              name="lnameCl"
+              placeholder="Ingresa los apellidos"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Número de documento Cliente</label>
+            <input
+              type="number"
+              class="form-control"
+              id="nroDocCl"
+              name="nroDocCl"
+              placeholder="Ingresa el nro"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Cumpleaños Cliente</label>
+            <input
+              type="datetime"
+              class="form-control"
+              id="birthdateCl"
+              name="birthdateCl"
+              placeholder="Ingresa la fecha"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Tipo de documento Cliente</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="idTd"
+              ngModel
+            >
+              <option selected>Selecciona el tipo de documento</option>
+              <option value="1">DNI</option>
+            </select>
+            <p *ngIf="response">Se ha creado correctamente el cliente</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <input
+              (click)="onClienteCreate(clienteForm.value)"
+              type="button"
+              class="btn btn-primary"
+              value="Completar"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

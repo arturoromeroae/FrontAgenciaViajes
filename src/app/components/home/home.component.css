@@ -1,5 +1,10 @@
+.carouselExample{
+    width: 60%;
+}
+
 #carousel-inner img {
     height: 10px;
+    width: 500px;
 }
 
 .card {

@@ -1,1 +1,111 @@
-<p>create-vuelo works!</p>
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Add Vuelo
+</button>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Cliente</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          method="post"
+          #vueloForm="ngForm"
+          (ngSubmit)="onVueloCreate(vueloForm.value)"
+        >
+          <div class="form-group">
+            <label for="exampleInputEmail1">Destino Vuelo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="destinoVuelo"
+              name="destinoVuelo"
+              placeholder="Ingresa el destino"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Salida Vuelo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="salidaVuelo"
+              name="salidaVuelo"
+              placeholder="Ingresa la salida"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Fecha Vuelo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="dateVuelo"
+              name="dateVuelo"
+              placeholder="Ingresa la fecha"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Asiento Vuelo</label>
+            <input
+              type="datetime"
+              class="form-control"
+              id="asientoVuelo"
+              name="asientoVuelo"
+              placeholder="Ingresa el asiento"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Precio Vuelo</label>
+            <input
+              type="datetime"
+              class="form-control"
+              id="precio"
+              name="precio"
+              placeholder="Ingresa el precio"
+              ngModel
+            />
+            <label for="exampleInputEmail1">Aerolinea Vuelo</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="idAero"
+              ngModel
+            >
+              <option selected>Selecciona la aerolinea</option>
+              <option value="1">Latam</option>
+            </select>
+            <p *ngIf="response">Se ha creado correctamente la aerolinea</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <input
+              (click)="onVueloCreate(vueloForm.value)"
+              type="button"
+              class="btn btn-primary"
+              value="Completar"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

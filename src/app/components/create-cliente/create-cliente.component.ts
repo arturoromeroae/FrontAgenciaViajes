@@ -9,12 +9,12 @@ import { Component } from '@angular/core';
 export class CreateClienteComponent {
   response: any;
   constructor(private http: HttpClient) {}
-  onCompraCreate(clientes: {
+  onClienteCreate(clientes: {
     nameCl: any;
     lnameCl: any;
     nroDocCl: any;
     birthdateCl: any;
-    idTd: any;
+    idTd: number;
   }) {
     console.log(clientes);
     this.http
